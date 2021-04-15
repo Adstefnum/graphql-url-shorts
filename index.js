@@ -1,3 +1,5 @@
+//import { getrandom } from './shorten.js';
+
 const express = require('express')
 const { graphqlHTTP } = require('express-graphql')
 const { buildSchema } = require('graphql')
@@ -6,12 +8,16 @@ const expressPlayground = require('graphql-playground-middleware-express')
 
 const schema = buildSchema(`
   type Query {
-    hello(name: String!): String!
+    shortenURL(url: String!): String!
   }
+
 `)
 
 const resolvers = {
-    hello: (args) => `Hello ${args.name}`,
+    shortenURL: (args) => { 
+        return "https://shorts-url.herokuapp.com/" + Math.random().toString(32).substring(2, 5) + Math.random().toString(32).substring(2, 5); 
+    },
+ 
 }
 
 const app = express()

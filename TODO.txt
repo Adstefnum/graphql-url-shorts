@@ -1,0 +1,13 @@
+=save both the short-url and long to database(elephantsql)
+	-id
+	-long_url
+	-short-url
+	--no of clicks
+
+=whenever it is called upon function should just check database
+and redirect to original
+
+=make it show website link
+
+=check if short_url already exists
+ 
