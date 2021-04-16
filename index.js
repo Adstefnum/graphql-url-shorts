@@ -1,29 +1,31 @@
-//import { getrandom } from './shorten.js';
-
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express')
 const { graphqlHTTP } = require('express-graphql')
 const { buildSchema } = require('graphql')
 const expressPlayground = require('graphql-playground-middleware-express')
     .default
 
-const schema = buildSchema(`
-  type Query {
-    shortenURL(url: String!): String!
-  }
-
-`)
-
-const resolvers = {
-    shortenURL: (args) => { 
-        return "https://shorts-url.herokuapp.com/" + Math.random().toString(32).substring(2, 5) + Math.random().toString(32).substring(2, 5); 
-    },
- 
-}
 
 const app = express()
 
+
+//loading type definitions from schema file
+const fs = require('fs')
+const typeDefs = fs.readFileSync('./schema.graphql',{encoding:'utf-8'})
+
+//loading resolvers
+const resolvers = require('./resolvers')
+
+//binding schema and resolver
+const {makeExecutableSchema} = require('graphql-tools')
+const schema = makeExecutableSchema({typeDefs, resolvers})
+
+
 app.use(
     '/graphql',
+    cors(), 
+    bodyParser.json(),
     graphqlHTTP((req) => ({
         schema,
         rootValue: resolvers,

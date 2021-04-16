@@ -1,13 +1,17 @@
-=save both the short-url and long to database(elephantsql)
-	-id
-	-long_url
-	-short-url
-	--no of clicks
+
 
 =whenever it is called upon function should just check database
 and redirect to original
 
-=make it show website link
+=create function to add to database
 
 =check if short_url already exists
  
+
+   type Link {
+    org_url : String!
+    short_url: String
+    no_of_clicks  : Int
+    date_created : Date
+
+  }
