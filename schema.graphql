@@ -1,5 +1,14 @@
 type Query {
-    shortenURL(url: String!): String!
+    shortenURL(url: String!): Link
   }
 
+scalar Date
 
+type Link {
+	link_id : ID!
+    org_url : String
+    short_url: String
+    no_of_clicks  : Int
+    date_created : Date
+
+  }

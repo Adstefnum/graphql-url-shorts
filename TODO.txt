@@ -8,10 +8,15 @@ and redirect to original
 =check if short_url already exists
  
 
-   type Link {
-    org_url : String!
-    short_url: String
-    no_of_clicks  : Int
-    date_created : Date
++ Add ID that they can use to retrieve already shortened
 
-  }
+
+
+
+window.location.replace("http://www.w3schools.com")
+window.location.hostname
+
+root.link_id, root.org_url, root.short_url, root.date_created, root.no_of_clicks
+
+( link_id,short_url,org_url,date_created,no_of_clicks )
+RETURNING *
