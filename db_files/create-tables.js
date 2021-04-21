@@ -2,12 +2,13 @@ const { client } = require('./connectdb.js')
 
 /*var date_now = Date.now(); //this is for when I am inserting the value. I still need to convert it from epoch to normal date*/
 
-const query = `CREATE TABLE links(
+const query = `
+CREATE TABLE links(
    link_id varchar(6) NOT NULL,
    org_url varchar(1000) NOT NULL,
    short_url varchar(40) NOT NULL,
    no_of_clicks INT NOT NULL,
-   date_created DATE );
+   date_created varchar(12) NOT NULL );
    `;
 
 client.connect(function(err) {

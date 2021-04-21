@@ -16,7 +16,5 @@ and redirect to original
 window.location.replace("http://www.w3schools.com")
 window.location.hostname
 
-root.link_id, root.org_url, root.short_url, root.date_created, root.no_of_clicks
 
-( link_id,short_url,org_url,date_created,no_of_clicks )
-RETURNING *
+ aireplay-ng -0 1 -a 00:14:6C:7E:40:80 -c 00:0F:B5:AE:CE:9D ath0

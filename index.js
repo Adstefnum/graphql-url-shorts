@@ -33,7 +33,7 @@ app.use(
     }))
 )
 
-const port = 8080
+const port = 9000
 
 app.get('/', expressPlayground({ endpoint: '/graphql' }))
 
