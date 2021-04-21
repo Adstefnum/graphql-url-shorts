@@ -1,7 +1,7 @@
-const { client } = require("./db_files/connectdb.js");
+const { client } = require("../db_files/connectdb.js");
 const { GraphQLDateTime } = require('graphql-iso-date')
-const { date } = require('./utils/date')
-const { shortcode } = require('./utils/shortcode')
+const { date } = require('../utils/date')
+const { shortcode } = require('../utils/shortcode')
 
 
 client.connect(function(err) {
@@ -46,6 +46,9 @@ const Link = {
 const Query = {
     shortenURL: (args) => { 
 
+      var org_url = $args.url;
+      console.log(org_url)
+
     	client.query(`SELECT org_url FROM links;`, function(err, links) {
     if(err) {
       return console.error('Error retrieving links', err);
@@ -72,7 +75,6 @@ else {
 	//Sets the database values and return values
 		var link_id = shortcode
         var short_url = "shorts-url.herokuapp.com/" + link_id
-        var org_url = args.url
         var date_created = date
         var no_of_clicks  = 0
         console.log(link_id, short_url,org_url,no_of_clicks,date_created);

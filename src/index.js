@@ -12,7 +12,7 @@ const app = express()
 
 //loading type definitions from schema file
 const fs = require('fs')
-const typeDefs = fs.readFileSync('./schema.graphql',{encoding:'utf-8'})
+const typeDefs = fs.readFileSync('src/schema.graphql',{encoding:'utf-8'})
 
 //loading resolvers
 const resolvers = require('./resolvers')
