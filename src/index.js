@@ -33,10 +33,10 @@ app.use(
     }))
 )
 
-const port = 9000
+const port = 5000 || process.env.PORT
 
 app.get('/', expressPlayground({ endpoint: '/graphql' }))
 
 app.listen({ port }, () => {
-    console.log(`🚀 Server ready at http://localhost:${port || 5000 }/graphql`)
+    console.log(`🚀 Server ready at http://localhost:${port}/graphql`)
 })
