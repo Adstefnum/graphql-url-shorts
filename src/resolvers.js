@@ -46,7 +46,7 @@ const Link = {
 const Query = {
     shortenURL: (args) => { 
 
-      var org_url = $args.url;
+      var org_url = args;
       console.log(org_url)
 
     	client.query(`SELECT org_url FROM links;`, function(err, links) {
