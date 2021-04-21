@@ -73,7 +73,7 @@ else {
 		var link_id = shortcode
         var short_url = "shorts-url.herokuapp.com/" + link_id
         var date_created = date
-        var org_url = 
+        var org_url = args.url
         var no_of_clicks  = 0
         console.log(link_id, short_url,org_url,no_of_clicks,date_created);
 
