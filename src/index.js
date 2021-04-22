@@ -33,7 +33,7 @@ app.use(
     }))
 )
 
-const port = 5000 || process.env.PORT
+const port = process.env.PORT
 
 app.get('/', expressPlayground({ endpoint: '/graphql' }))
 
